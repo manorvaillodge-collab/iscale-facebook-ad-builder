@@ -46,4 +46,4 @@ RUN mkdir -p uploads
 EXPOSE 8000
 
 # Run migrations and start the application
-CMD alembic upgrade head && uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-8000}
+CMD python init_db.py && uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-8000}
